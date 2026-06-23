@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>      
+      <th>Doctor</th>
+      <th>Patient</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let appointment of appointments">    
+      <td>{{ appointment.doctorName }}</td>
+      <td>{{ appointment.patientName }}</td>
+      <td>{{ appointment.startTime | date:'short' }}</td>
+      <td>{{ appointment.endTime | date:'short' }}</td>
+      <td>{{ AppointmentStatus[appointment.status] }}</td>
+    </tr>
+  </tbody>
+</table>
