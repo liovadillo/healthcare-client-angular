@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppointmentService } from '../../services/appointment/appointment';
-import { AppointmentDetailDTO } from '../../models/appointment/appointment.model';
+import { AppointmentDetailDTO, AppointmentStatus } from '../../models/appointment/appointment.model';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 
@@ -15,6 +15,7 @@ export class AppointmentDetail implements OnInit {
 
   appointment$: Observable<AppointmentDetailDTO> | null = null;
   errorMessage: string = '';
+  AppointmentStatus = AppointmentStatus;
 
   constructor(
     private route: ActivatedRoute,

@@ -7,7 +7,7 @@
   <p><strong>Diagnosis:</strong> {{ appointment.patient.diagnosis }}</p>
   <p><strong>Start:</strong> {{ appointment.startTime | date:'short' }}</p>
   <p><strong>End:</strong> {{ appointment.endTime | date:'short' }}</p>
-  <p><strong>Status:</strong> {{ appointment.status }}</p>
+  <p><strong>Status:</strong> {{ AppointmentStatus[appointment.status] }}</p>
 </div>
 
 <button (click)="goBack()">← Back</button>
