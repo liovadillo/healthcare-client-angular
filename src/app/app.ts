@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { AppointmentsContainer } from './components/appointments-container/appointments-container';
+import { RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
-  imports: [AppointmentsContainer],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
