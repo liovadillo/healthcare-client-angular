@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let appointment of appointments">    
+    <tr *ngFor="let appointment of appointments" (click)="onSelect(appointment.id)">    
       <td>{{ appointment.doctorName }}</td>
       <td>{{ appointment.patientName }}</td>
       <td>{{ appointment.startTime | date:'short' }}</td>

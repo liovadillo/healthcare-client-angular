@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppointmentDTO } from '../../models/appointment/appointment.model';
-import { AppointmentStatus } from '../../models/appointment/appointment.model';
+import { AppointmentDTO, AppointmentStatus } from '../../models/appointment/appointment.model';
+
 
 @Component({
   selector: 'app-appointment-list',
@@ -12,6 +12,11 @@ import { AppointmentStatus } from '../../models/appointment/appointment.model';
 export class AppointmentList {
 
   @Input() appointments: AppointmentDTO[] = [];
+  @Output() appointmentSelected = new EventEmitter<number>();
   AppointmentStatus = AppointmentStatus;
+
+  onSelect(id: number): void {
+    this.appointmentSelected.emit(id);
+  }
 
 }
