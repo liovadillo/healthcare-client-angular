@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DoctorDTO } from '../../models/doctor/doctor.model';
 import { CommonModule } from '@angular/common';
 import { DoctorsList } from '../doctors-list/doctors-list';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctors-container',
@@ -19,11 +20,16 @@ export class DoctorsContainer implements OnInit {
 
 
   constructor(
-    private doctorService: DoctorService
+    private doctorService: DoctorService,
+    private router: Router    
   ) { }
 
   ngOnInit(): void {
     this.doctors$ = this.doctorService.getAll();
+  }
+
+  onDoctorSelected(id: number): void {
+    this.router.navigate(['/doctors', id]);
   }
 
 }

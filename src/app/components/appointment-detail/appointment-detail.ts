@@ -28,7 +28,7 @@ export class AppointmentDetail implements OnInit {
     this.appointment$ = this.appointmentService.getById(id);
   }
 
-   goBack(): void {
+  goBack(): void {
     this.router.navigate(['/appointments']);
   }
   
