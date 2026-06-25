@@ -4,15 +4,13 @@
       <th>Name</th>
       <th>Speciality</th>
       <th>IsAvailable</th>
-      <th>YOE</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let doctor of doctors">    
+    <tr *ngFor="let doctor of doctors" (click)="onSelect(doctor.id)">    
       <td>{{ doctor.name }}</td>
       <td>{{ doctor.specialty }}</td>
-      <td>{{ doctor.isAvailable }}</td>
-      <td>{{ doctor.yearsOfExperience }}</td>      
+      <td>{{ doctor.isAvailable ? 'Active' : 'Inactive' }}</td>         
     </tr>
   </tbody>
 </table>

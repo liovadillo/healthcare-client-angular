@@ -6,7 +6,8 @@
   </div>
 
   <ng-container *ngIf="doctors$ | async as doctors; else loading">
-    <app-doctors-list [doctors]="doctors">
+    <app-doctors-list [doctors]="doctors"
+    (doctorSelected)="onDoctorSelected($event)">
     </app-doctors-list>
   </ng-container>
 
