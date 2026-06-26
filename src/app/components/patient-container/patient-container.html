@@ -7,7 +7,7 @@
 
   <ng-container *ngIf="patients$ | async as patients; else loading">
     <app-patient-list [patients]="patients"
-    >
+    (selectedPatient)="onPatientSelected($event)">
     </app-patient-list>
   </ng-container>
 

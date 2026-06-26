@@ -7,9 +7,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let patient of patients">    
+    <tr *ngFor="let patient of patients" (click)="onSelect(patient.id)">    
       <td>{{ patient.name }}</td>
-      <td>{{ patient.diagnosis }}</td>
+      <td>{{ patient.age }}</td>
       <td>{{ patient.isActive ? 'Active' : 'Inactive' }}</td>         
     </tr>
   </tbody>
