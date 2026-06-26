@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PatientDTO } from '../../models/patient/patient.model';
 
 @Component({
@@ -11,5 +11,10 @@ import { PatientDTO } from '../../models/patient/patient.model';
 export class PatientList {
 
 @Input() patients: PatientDTO[] = [];
+@Output() selectedPatient = new EventEmitter<number>();
+
+onSelect(id: number): void {
+  this.selectedPatient.emit(id);
+}
 
 }

@@ -26,4 +26,8 @@ export class PatientContainer implements OnInit {
     this.patients$ = this.patientService.getAll();
   }
 
+  onPatientSelected(id:number): void{
+    this.router.navigate(['/patients', id]);
+  }
+
 }
