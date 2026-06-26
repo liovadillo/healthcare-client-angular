@@ -1,0 +1,18 @@
+<div>
+  <h2>Patients</h2>
+
+  <div *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <ng-container *ngIf="patients$ | async as patients; else loading">
+    <app-patient-list [patients]="patients"
+    >
+    </app-patient-list>
+  </ng-container>
+
+  <ng-template #loading>
+    Loading...
+  </ng-template>
+
+</div>

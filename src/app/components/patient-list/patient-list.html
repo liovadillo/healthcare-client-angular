@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>      
+      <th>Name</th>
+      <th>Age</th>      
+      <th>Is Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of patients">    
+      <td>{{ patient.name }}</td>
+      <td>{{ patient.diagnosis }}</td>
+      <td>{{ patient.isActive ? 'Active' : 'Inactive' }}</td>         
+    </tr>
+  </tbody>
+</table>
