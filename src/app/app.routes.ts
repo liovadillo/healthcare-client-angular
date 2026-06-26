@@ -3,6 +3,7 @@ import { AppointmentsContainer } from './components/appointments-container/appoi
 import { AppointmentDetail } from './components/appointment-detail/appointment-detail';
 import { DoctorsContainer } from './components/doctors-container/doctors-container';
 import { DoctorDetail } from './components/doctor-detail/doctor-detail';
+import { PatientContainer } from './components/patient-container/patient-container';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'appointments', pathMatch: 'full' },
@@ -10,4 +11,5 @@ export const routes: Routes = [
   { path: 'appointments/:id', component: AppointmentDetail },
   { path: 'doctors', component: DoctorsContainer },
   { path: 'doctors/:id', component: DoctorDetail },
+  { path: 'patients', component: PatientContainer },
 ];
