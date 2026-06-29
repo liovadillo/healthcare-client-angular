@@ -1,13 +1,14 @@
 <div *ngIf="doctor$ | async as doctor; else loading">
-  <h2>Doctor Details: {{ doctor.name }} </h2>
-
-  <p><strong>Doctor:</strong> {{ doctor.name }}</p>
-  <p><strong>Specialty:</strong> {{ doctor.specialty }}</p>
-  <p><strong>Is Active:</strong> {{ doctor.isAvailable ? 'Active' : 'Inactive' }}</p>
-  <p><strong>Years of Experience:</strong> {{ doctor.yearsOfExperience }}</p> 
+  <h2 class="title is-4 has-text-dark">Doctor Details: {{ doctor.name }} </h2>
+  <hr>
+  <p><span class="has-text-weight-bold has-text-dark">Doctor:</span> {{ doctor.name }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Specialty:</span> {{ doctor.specialty }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Is Active:</span> {{ doctor.isAvailable ? 'Active' : 'Inactive' }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Years of Experience:</span> {{ doctor.yearsOfExperience }}</p> 
 </div>
 
-<button (click)="goBack()">← Back</button>
+<br>
+<button class="button is-primary" (click)="goBack()">← Back</button>
 
 <ng-template #loading>
   Loading...

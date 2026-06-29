@@ -1,14 +1,15 @@
 <div *ngIf="patient$ | async as patient; else loading">
-  <h2>Patient Details: {{ patient.name }} </h2>
-
-  <p><strong>Patient:</strong> {{ patient.name }}</p>
-  <p><strong>Age:</strong> {{ patient.age }}</p>
-  <p><strong>Diagnosis:</strong> {{ patient.diagnosis }}</p>
-  <p><strong>Date of Birth:</strong> {{ patient.dateOfBirth  | date:'short' }}</p>
-  <p><strong>Is Active:</strong> {{ patient.isActive ? 'Active' : 'Inactive' }}</p>
+  <h2 class="title is-4 has-text-dark">Patient Details: {{ patient.name }} </h2>
+  <hr>
+  <p><span class="has-text-weight-bold has-text-dark">Patient:</span> {{ patient.name }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Age:</span> {{ patient.age }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Diagnosis:</span> {{ patient.diagnosis }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Date of Birth:</span> {{ patient.dateOfBirth  | date:'short' }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Is Active:</span> {{ patient.isActive ? 'Active' : 'Inactive' }}</p>
 </div>
 
-<button (click)="goBack()">← Back</button>
+<br>
+<button class="button is-primary" (click)="goBack()">← Back</button>
 
 <ng-template #loading>
   Loading...

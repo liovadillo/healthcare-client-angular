@@ -1,0 +1,19 @@
+:host {
+    display: flex;
+    height: 100vh;
+}
+
+app-nav-sidebar {
+  width: 140px;
+    
+}
+
+router-outlet + * {
+  flex: 1;
+  padding: 20px;
+}
+
+.content {
+  flex: 1;
+  padding: 15px;
+}
