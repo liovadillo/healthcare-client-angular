@@ -1,16 +1,17 @@
 <div *ngIf="appointment$ | async as appointment; else loading">
-  <h2>Appointment Detail</h2>
-
-  <p><strong>Doctor:</strong> {{ appointment.doctor.name }}</p>
-  <p><strong>Specialty:</strong> {{ appointment.doctor.specialty }}</p>
-  <p><strong>Patient:</strong> {{ appointment.patient.name }}</p>
-  <p><strong>Diagnosis:</strong> {{ appointment.patient.diagnosis }}</p>
-  <p><strong>Start:</strong> {{ appointment.startTime | date:'short' }}</p>
-  <p><strong>End:</strong> {{ appointment.endTime | date:'short' }}</p>
-  <p><strong>Status:</strong> {{ AppointmentStatus[appointment.status] }}</p>
+  <h2 class="title is-4 has-text-dark">Appointment Detail</h2>
+  <hr>
+  <p><span class="has-text-weight-bold has-text-dark">Doctor:</span> {{ appointment.doctor.name }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Specialty:</span> {{ appointment.doctor.specialty }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Patient:</span> {{ appointment.patient.name }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Diagnosis:</span> {{ appointment.patient.diagnosis }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Start:</span> {{ appointment.startTime | date:'short' }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">End:</span> {{ appointment.endTime | date:'short' }}</p>
+  <p><span class="has-text-weight-bold has-text-dark">Status:</span> {{ AppointmentStatus[appointment.status] }}</p>
 </div>
 
-<button (click)="goBack()">← Back</button>
+<br>
+<button class="button is-primary" (click)="goBack()">← Back</button>
 
 <ng-template #loading>
   Loading...
