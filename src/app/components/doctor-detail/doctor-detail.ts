@@ -14,6 +14,7 @@ import { DoctorService } from '../../services/doctor/doctor';
 export class DoctorDetail implements OnInit {
 
   doctor$: Observable<DoctorDTO> | null = null;
+  showSuccess: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +23,8 @@ export class DoctorDetail implements OnInit {
   ){}
 
   ngOnInit(): void {
+    console.log('created param:', this.route.snapshot.queryParamMap.get('created'));
+    this.showSuccess = this.route.snapshot.queryParamMap.get('created') === 'true';
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.doctor$ = this.doctorService.getById(id);
   }

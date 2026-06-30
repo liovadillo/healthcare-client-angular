@@ -1,0 +1,38 @@
+<form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input class="input" type="text" formControlName="name" placeholder="Doctor name">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Speciality</label>
+    <div class="control">
+      <input class="input" type="text" formControlName="specialty" placeholder="Specialty">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Years of Experience</label>
+    <div class="control">
+      <input class="input" type="number" formControlName="yearsOfExperience">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="checkbox">
+      <input type="checkbox" formControlName="isAvailable">
+      Is Available
+    </label>
+  </div>
+
+  <div class="buttons">
+    <button class="button is-primary" type="submit" [disabled]="doctorForm.invalid">
+      Save
+    </button>
+    <button class="button is-light" type="button" (click)="goBack()">← Back</button>
+  </div>
+
+</form>
