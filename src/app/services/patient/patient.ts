@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PatientDTO } from '../../models/patient/patient.model';
+import { CreatePatientDTO, PatientDTO } from '../../models/patient/patient.model';
 
 @Injectable({
     providedIn: 'root'
@@ -21,7 +21,7 @@ export class PatientService {
         return this.http.get<PatientDTO>(`${this.apiUrl}/${id}`);
     }
 
-    create(dto: PatientDTO): Observable<PatientDTO>{
+    create(dto: CreatePatientDTO): Observable<PatientDTO>{
         return this.http.post<PatientDTO>(this.apiUrl, dto);
     }
 

@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 export class PatientDetail implements OnInit {
 
   patient$: Observable<PatientDTO> | null = null;
+  showSuccess: boolean = false;
   
   constructor(
     private router: Router,
@@ -22,6 +23,7 @@ export class PatientDetail implements OnInit {
   ){} 
 
   ngOnInit(): void {
+    this.showSuccess = this.route.snapshot.queryParamMap.get('created') === 'true';
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.patient$ = this.patientService.getById(id);
   }
