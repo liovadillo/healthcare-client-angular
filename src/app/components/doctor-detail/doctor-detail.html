@@ -1,3 +1,8 @@
+<div class="notification is-success" *ngIf="showSuccess">
+  <button class="delete" (click)="showSuccess = false"></button>
+  Doctor created successfully!
+</div>
+
 <div *ngIf="doctor$ | async as doctor; else loading">
   <h2 class="title is-4 has-text-dark">Doctor Details: {{ doctor.name }} </h2>
   <hr>
