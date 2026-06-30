@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule, Location } from '@angular/common';
 import { DoctorService } from '../../services/doctor/doctor';
 import { Router } from '@angular/router';
-import { DoctorDetail } from '../doctor-detail/doctor-detail';
 
 @Component({
   selector: 'app-doctor-form',
@@ -34,8 +33,7 @@ export class DoctorForm implements OnInit {
   }
 
   onSubmit(): void{
-    if(this.doctorForm.valid){
-      console.log('next ejecutado');
+    if(this.doctorForm.valid){      
       const dto: CreateDoctorDTO = this.doctorForm.value;
       this.doctorService.create(dto).subscribe({
         next: (doctor: DoctorDTO) => {

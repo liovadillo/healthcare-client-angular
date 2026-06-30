@@ -30,4 +30,8 @@ export class PatientContainer implements OnInit {
     this.router.navigate(['/patients', id]);
   }
 
+    onCreate(): void{
+    this.router.navigate(['/patients/create']);
+  }
+
 }

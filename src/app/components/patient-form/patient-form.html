@@ -1,0 +1,45 @@
+<h2 class="title is-4 has-text-dark">Add new Patient</h2>
+<form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+  <div class="field">
+    <label class="label has-text-weight-bold has-text-dark">Name *</label>
+    <div class="control">
+      <input class="input" type="text" formControlName="name" placeholder="Patient name">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label has-text-weight-bold has-text-dark">Date of Birth *</label>
+    <div class="control">
+      <input class="input" type="date" formControlName="dateOfBirth">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label has-text-weight-bold has-text-dark">Age</label>
+    <div class="control">
+      <input class="input" type="number" formControlName="age">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label has-text-weight-bold has-text-dark">Diagnosis</label>
+    <div class="control">
+      <input class="input" type="text" formControlName="diagnosis" placeholder="Diagnosis">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="checkbox has-text-weight-bold has-text-dark">
+      <input type="checkbox" formControlName="isActive">
+      Is Active
+    </label>
+  </div>
+
+  <div class="buttons">
+    <button class="button is-primary" type="submit" [disabled]="patientForm.invalid">
+      Save
+    </button>
+    <button class="button is-light" type="button" (click)="goBack()">← Back</button>
+  </div>
+
+</form>
