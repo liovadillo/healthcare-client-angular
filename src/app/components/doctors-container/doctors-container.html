@@ -4,6 +4,10 @@
   <div *ngIf="errorMessage">
     {{ errorMessage }}
   </div>
+  <div class="notification is-danger" *ngIf="showDeleted">
+    <button class="delete" (click)="showDeleted = false"></button>
+    Doctor deleted successfully!
+  </div>
 
   <ng-container *ngIf="doctors$ | async as doctors; else loading">
     <app-doctors-list [doctors]="doctors"
@@ -15,5 +19,5 @@
     Loading...
   </ng-template>
   <br>
-  <button class="button is-primary" (click)="onCreate()">>+ Add Doctor</button>
+  <button class="button is-primary" (click)="onCreate()">Add Doctor</button>
 </div>

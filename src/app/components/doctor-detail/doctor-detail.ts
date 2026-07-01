@@ -15,6 +15,7 @@ export class DoctorDetail implements OnInit {
 
   doctor$: Observable<DoctorDTO> | null = null;
   showSuccess: boolean = false;
+  showConfirmModal: boolean = false;  
 
   constructor(
     private route: ActivatedRoute,
@@ -22,15 +23,28 @@ export class DoctorDetail implements OnInit {
     private router: Router
   ){}
 
-  ngOnInit(): void {
-    console.log('created param:', this.route.snapshot.queryParamMap.get('created'));
+  ngOnInit(): void {    
     this.showSuccess = this.route.snapshot.queryParamMap.get('created') === 'true';
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.doctor$ = this.doctorService.getById(id);
+    
   }
 
   goBack(): void{
     this.router.navigate(['/doctors']);
   }
 
+  onDelete(): void {
+    this.showConfirmModal = true;
+  }
+
+  confirmDelete(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.doctorService.delete(id).subscribe({
+      next: () => this.router.navigate(['/doctors'], { 
+        queryParams: { deleted: true } 
+      }),
+      error: () => console.error('Error deleting doctor')
+    });
+  }
 }
