@@ -24,7 +24,7 @@ export class DoctorDetail implements OnInit {
   ){}
 
   ngOnInit(): void {    
-    this.showSuccess = this.route.snapshot.queryParamMap.get('created') === 'true';
+    this.showSuccess = this.route.snapshot.queryParamMap.get('saved') === 'true';
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.doctor$ = this.doctorService.getById(id);
     
@@ -32,6 +32,11 @@ export class DoctorDetail implements OnInit {
 
   goBack(): void{
     this.router.navigate(['/doctors']);
+  }
+
+  goUpdate(): void{
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.router.navigate(['/doctors', id, 'edit']);
   }
 
   onDelete(): void {

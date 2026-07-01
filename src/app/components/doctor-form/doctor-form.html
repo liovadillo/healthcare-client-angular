@@ -30,7 +30,7 @@
 
   <div class="buttons">
     <button class="button is-primary" type="submit" [disabled]="doctorForm.invalid">
-      Save
+      {{ isEditMode ? 'Update' : 'Save' }}
     </button>
     <button class="button is-light" type="button" (click)="goBack()">← Back</button>
   </div>
