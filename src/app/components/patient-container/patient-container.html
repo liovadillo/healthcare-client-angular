@@ -5,6 +5,11 @@
     {{ errorMessage }}
   </div>
 
+  <div class="notification is-danger" *ngIf="showDeleted">
+    <button class="delete" (click)="showDeleted = false"></button>
+    Patient deleted successfully.
+  </div>
+
   <ng-container *ngIf="patients$ | async as patients; else loading">
     <app-patient-list [patients]="patients"
     (selectedPatient)="onPatientSelected($event)">

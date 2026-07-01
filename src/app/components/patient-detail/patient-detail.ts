@@ -15,6 +15,7 @@ export class PatientDetail implements OnInit {
 
   patient$: Observable<PatientDTO> | null = null;
   showSuccess: boolean = false;
+  showConfirmModal:boolean = false;
   
   constructor(
     private router: Router,
@@ -30,6 +31,20 @@ export class PatientDetail implements OnInit {
 
   goBack(): void{
     this.router.navigate(['/patients']);
+  }
+
+  onDelete(): void {
+    this.showConfirmModal = true;
+  }
+
+  confirmDelete(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.patientService.delete(id).subscribe({
+      next: () => this.router.navigate(['/patients'], { 
+        queryParams: { deleted: true } 
+      }),
+      error: () => console.error('Error deleting patient')
+    });
   }
 
 }
