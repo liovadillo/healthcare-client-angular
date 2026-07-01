@@ -3,7 +3,7 @@ import { CreateDoctorDTO, DoctorDTO } from '../../models/doctor/doctor.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule, Location } from '@angular/common';
 import { DoctorService } from '../../services/doctor/doctor';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-form',
@@ -20,10 +20,17 @@ export class DoctorForm implements OnInit {
     private fb: FormBuilder,
     private doctorService: DoctorService,
     private router: Router,
-    private location: Location    
+    private location: Location,
+    private route: ActivatedRoute, 
   ){ };
 
-  ngOnInit(): void {     
+  isEditMode: boolean = false;
+
+  ngOnInit(): void {
+    
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.isEditMode = !!id;
+
     this.doctorForm = this.fb.group({
       name:[this.initialData?.name ?? '', Validators.required],
       specialty: [this.initialData?.specialty ?? '', Validators.required],
@@ -35,14 +42,29 @@ export class DoctorForm implements OnInit {
   onSubmit(): void{
     if(this.doctorForm.valid){      
       const dto: CreateDoctorDTO = this.doctorForm.value;
-      this.doctorService.create(dto).subscribe({
+      const id = Number(this.route.snapshot.paramMap.get('id'));
+
+      if(this.isEditMode){
+        this.doctorService.update(id, dto).subscribe({
         next: (doctor: DoctorDTO) => {
         this.router.navigate(['/doctors', doctor.id], { 
-          queryParams: { created: true } 
+          queryParams: { saved: true } 
         });
       },
         error: () => console.log('Error')
       });
+
+      }
+      else {
+        this.doctorService.create(dto).subscribe({
+        next: (doctor: DoctorDTO) => {
+        this.router.navigate(['/doctors', doctor.id], { 
+          queryParams: { saved: true } 
+        });
+      },
+        error: () => console.log('Error')
+      });
+      }      
     }
   }
 

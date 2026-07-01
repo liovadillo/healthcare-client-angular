@@ -1,0 +1,6 @@
+<ng-container *ngIf="doctor$ | async as doctor; else createMode">
+  <app-doctor-form [initialData]="doctor"></app-doctor-form>
+</ng-container>
+<ng-template #createMode>
+  <app-doctor-form></app-doctor-form>
+</ng-template>

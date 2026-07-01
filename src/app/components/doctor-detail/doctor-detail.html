@@ -1,6 +1,6 @@
 <div class="notification is-success" *ngIf="showSuccess">
   <button class="delete" (click)="showSuccess = false"></button>
-  Doctor created successfully.
+  Doctor saved successfully.
 </div>
 
 <div *ngIf="doctor$ | async as doctor; else loading">
@@ -33,6 +33,7 @@
 
 <hr>
 <div class="buttons">
+  <button class="button is-link" (click)="goUpdate()">Edit</button>
   <button class="button is-danger" (click)="onDelete()">Delete</button>
   <button class="button is-light" (click)="goBack()">← Back</button>
 </div>
